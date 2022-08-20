@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+           <div>
+             <h1 class="mb-4">Blog Articles</h1>
+            <a href="/add" class="btn btn-success"> <nav>New Article</nav></a>
+            
+           </div>
+
+
+
+        {{#each users}}
+        <div class="card mt-4">
+
+
+            <div class="card-body">
+                
+                <h4 class="card-title">{{this.title}}</h4>
+
+                 <div class="card-text mb-2">{{this.description}}</div>
+                 <a href="/single/{{this._id}}" class="btn btn-primary">Show</a>
+                <a href="/edit/{{this._id}}" class="btn btn-warning ">Edit</a>
+                <a href="/del/{{this._id}}" class="btn btn-danger ">Delete</a>
+                <a href="/comment/{{this._id}} " class="btn btn-info text-white">Add Comment</a>
+            </div> 
+
+        </div>
+        {{/each}}
+
+
+
+
+
+
+        </div>
+    </div>
+    
+</body>
+</html>
