@@ -1,0 +1,10 @@
+const router = require("express").Router()
+const Blog = require("../controllers/blog.controller")
+const auth = require("../middleware/auth.middleware")
+router.get("/", Blog.index)
+router.post("/add", Blog.create)
+router.get("/single/:id", Blog.single)
+router.post("/edit/:id", Blog.edit)
+router.get("/all", Blog.all)
+router.delete("/delete/:id",Blog.deleteblog)
+module.exports = router

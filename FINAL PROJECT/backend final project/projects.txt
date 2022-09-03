@@ -1,0 +1,12 @@
+noha => blog
+mahmoud => blog
+abd el rahman => blog 
+moatz, michael, nada abu bakr => ecommerce
+m fouad => resturant
+mina => ecommerce
+tafreha => ecommerce
+asmaa ali => simple ecommerce
+ismael => ecommerce
+nada osama, abd allah => ecommerce
+talal
+marwa

@@ -1,0 +1,34 @@
+<p>editblog works!</p>
+<div class="container">
+ 
+    <form #editBlog="ngForm" (ngSubmit)="handleEditBlog(editBlog)" >
+        <div class="mb-3">
+            <input 
+            placeholder="Edit Title" class="form-control" 
+            name="title" 
+            
+            #title="ngModel"
+            [(ngModel)]="BlogData.title"
+            >
+          
+        </div>
+
+        <div class="mb-3">
+            <textarea 
+            placeholder="Edit Content" class="form-control" 
+            name="content" 
+            required minlength="30" maxlength="2000" 
+            #content="ngModel"
+            [(ngModel)]="BlogData.content"
+            >{{BlogData.content}}</textarea>
+            
+        </div>
+   
+
+  
+     
+        <div class="mb-3">
+            <button  class="btn btn-warning">Edit Article</button>
+        </div>
+    </form>
+</div>

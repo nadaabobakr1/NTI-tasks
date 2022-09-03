@@ -1,0 +1,55 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="row">
+        <div class="col-6 mb-3">
+            <input placeholder="email" class="form-control" formControlName="email">
+        </div>
+    </div>
+    <div class="mb-3">
+        <input placeholder="password" class="form-control" formControlName="password">
+    </div>
+    <div class="col-6 mb-3">
+        <button class="btn btn-primary">Login</button>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="alert alert-danger" *ngIf="login.invalid && login.submitted">
+
+    please check your inputs
+</div>
+<div class="">
+    <form #login="ngForm" (ngSubmit)="handlelogin(login)" >
+        
+        <div class="mb-3">
+            <input [(ngModel)]="userData.email" name="email" placeholder="email" class="form-control" email required #email="ngModel" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+            <div class="alert alert-danger my-2"
+            *ngIf="email.invalid && (email.dirty || email.touched || login.submitted)">
+                <span *ngIf="email.errors?.['required']">* email is required</span>
+                <span *ngIf="email.errors?.['pattern']">* invalid email format</span>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <input [(ngModel)]="userData.password" name="password"  placeholder="password" class="form-control"
+            required #password="ngModel">
+            <div class="alert alert-danger my-2"
+            *ngIf="(Loginflag ==false) &&(password.touched)">
+            WRONG PASSSWORD OR EMAIL
+         
+            </div>
+        </div> 
+    
+        <div class="mb-3">
+            <button class="btn btn-primary">Login</button>
+
+        </div>
+    </form>
+</div> -->

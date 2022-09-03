@@ -1,0 +1,34 @@
+<div class="container">
+    <h1 class="mb-4">Blog Articles</h1>
+<a routerLink="/addBlog" class="btn btn-success"> <nav>New Article</nav></a>
+
+<div class="row" *ngIf="isLoaded && errMsg==''">
+    <div class="col-4" *ngFor="let item of blogs  | keyvalue">
+        <div class="card mt-4">
+
+
+            <div class="card-body">
+                
+                <h4 class="card-title"> {{ item.value.title }}</h4>
+
+                 <div class="card-text mb-2">{{item.value.content}}</div>
+                 <!-- <span>{{item.value._id}}</span> -->
+                 <a routerLink="singleBlog" class="btn btn-primary " (click)="showItem(item.value._id)">Show</a>
+                <a routerLink="/editBlog" class="btn btn-warning mx-2 "(click)="editItem(item.value._id)">Edit</a>
+                <a  routerLink="/deleteBlog" (click)=" handleDeleteBlog(item.value._id)" class="btn btn-danger ">Delete</a>
+                <!-- <a href="/comment/{{this._id}} " class="btn btn-info text-white">Add Comment</a> -->
+            </div> 
+
+        </div>
+    </div>
+</div>
+<div class="alert alert-danger"  *ngIf="!isLoaded&& errMsg==''">
+    Loading now
+</div>
+<div class="alert alert-danger" *ngIf="isLoaded&& errMsg!=''">
+    {{errMsg}}
+</div>
+
+
+
+</div>

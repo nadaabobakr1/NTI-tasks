@@ -1,0 +1,58 @@
+<!-- template driven form - Reactive form -->
+<div class="alert alert-danger" *ngIf="register.invalid && register.submitted">
+    <!-- valid=> {{register.valid}}<br>
+    invalid=> {{register.invalid}}<br>
+    submitted=> {{register.submitted}}<br>
+    touched=> {{register.touched}}<br>
+    value=> {{register.value|json}} -->
+    please check your inputs
+</div>
+<form #register="ngForm" (ngSubmit)="handleregister(register)" >
+    <div class="mb-3">
+        <input 
+        placeholder="name" class="form-control" 
+        name="name" 
+        required minlength="5" maxlength="20" 
+        #name="ngModel"
+        [(ngModel)]="userData.name"
+        >
+        <div class="alert alert-danger my-2"
+        *ngIf="name.invalid && (name.dirty || name.touched || register.submitted)">
+            <span *ngIf="name.errors?.['required']">* name is required</span>
+            <span *ngIf="name.errors?.['minlength']">* name must be more than 3 chars</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input [(ngModel)]="userData.email" name="email" placeholder="email" class="form-control" email required #email="ngModel" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+        <div class="alert alert-danger my-2"
+        *ngIf="email.invalid && (email.dirty || email.touched || register.submitted)">
+            <span *ngIf="email.errors?.['required']">* email is required</span>
+            <span *ngIf="email.errors?.['pattern']">* invalid email format</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input [(ngModel)]="userData.age" name="age" placeholder="age" class="form-control"  required #age="ngModel" type="number">
+        <div class="alert alert-danger my-2"
+        *ngIf="(userData.age < 20 || userData.age >60 || age.invalid) && (age.dirty || age.touched || register.submitted)">
+            <span *ngIf="age.errors?.['required']">* age is required</span>
+            <span *ngIf="age.errors?.['pattern']">* invalid age format</span>
+            <span *ngIf="userData.age < 20">* invalid less than 20</span>
+            <span *ngIf="userData.age > 60">* invalid greater than 60</span>
+        </div>
+    </div>
+    <div class="mb-3">
+        <input [(ngModel)]="userData.password" name="password"  placeholder="password" class="form-control">
+    </div> 
+    <div class="mb-3">
+        <input [(ngModel)]="userData.isMarried" type="checkbox" name="isMarried" class="check-form-control">
+        <label class="mx-2">Is Married</label>
+    </div>
+    <div class="mb-3">
+        <label class="mx-2">Gender</label>
+        <input [(ngModel)]="userData.gender" type="radio" name="gender" value="male"> Male
+        <input [(ngModel)]="userData.gender" type="radio" name="gender" value="female"> Female
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary">Register</button>
+    </div>
+</form>
